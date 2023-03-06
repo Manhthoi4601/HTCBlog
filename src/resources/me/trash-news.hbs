@@ -1,0 +1,117 @@
+<div class="wrapper bg-light">
+  <div class="body-overlay"></div>
+  {{> admin-sidebar}}
+  <div id="content" class="bg-light">
+    {{> admin-header}}
+    <section class="px-lg-5 mx-lg-5">
+      <div class=" mx-auto container-fluid shadow-sm rounded bg-white">
+        {{!-- --}}
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom ">
+          <h2 class="mr-md-auto font-weight-bold">Thùng Rác</h2>
+          <a class="my-4 btn btn-warning" href="/news/create"> <i class="fa-solid fa-pen-to-square"></i> Viết Bài</a>
+        </div>
+        <br>
+        {{!-- --}}
+        <div class="table responsive table responsive py-5 mb-3" id="no-more-tables">
+          <table class="table bg-white">
+            <thead class="font-weight-bold">
+              <tr class="text-center">
+                <th scope="col">STT</th>
+                <th width="25%">Ảnh</th>
+                <th width="18%">Tiêu Đề</th>
+                <th scope="col">Mô Tả</th>
+                <th scope="col">Thời Gian Đăng</th>
+                <th width="12%">Hành Động</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each news}}
+              <tr>
+                <th scope="row" class="text-center">{{sum @index 1}}</th>
+                <td>
+                  <img class="img-fluid px-md-3" src="/public/img/{{this.image}}" alt="{{this.name}}">
+                </td>
+                <td>{{this.name}}</td>
+                <td>{{this.description}}</td>
+                <td class="text-center">{{this.createdAt}}</td>
+                <td class="text-center">
+                  <a href="" class="btn btn-success btn-restore" data-id="{{this._id}}"><i
+                      class="fa-solid fa-rotate-right"></i></a>
+                  <a href="" class="btn btn-danger" data-toggle="modal" data-id="{{this._id}}"
+                    data-target="#delete-news-modal"><i class="fa-solid fa-trash"></i></a>
+                </td>
+              </tr>
+              {{else}}
+              <tr>
+                <td colspan="10" class="text-center py-5 my-2">Thùng rác trống</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    {{>footer}}
+  </div>
+</div>
+
+
+
+
+
+{{!-- Confirm --}}
+<div class="modal" tabindex="-1" role="dialog" id="delete-news-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xóa bài viết</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có chắc muốn xóa không?.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-delete-news" class="btn btn-danger">Xóa</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Hủy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<form method="POST" name="delete-form"></form>
+<form method="POST" name="restore-form"></form>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+
+    var newsId
+    var deleteForm = document.forms['delete-form']
+    var restoreForm = document.forms['restore-form']
+    var btnDeleteNews = document.getElementById('btn-delete-news')
+    var restoreBtn = $('.btn-restore')
+
+    $('#delete-news-modal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget)
+      newsId = button.data('id')
+    })
+
+    btnDeleteNews.onclick = function () {
+      deleteForm.action = '/news/' + newsId + '/force?_method=DELETE'
+      deleteForm.submit()
+    }
+
+    //restore button click
+    restoreBtn.click(function (e) {
+      e.preventDefault()
+      var newsId = $(this).data('id')
+      restoreForm.action = '/news/' + newsId + '/restore?_method=PATCH'
+      restoreForm.submit()
+    })
+  })
+
+</script>

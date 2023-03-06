@@ -1,0 +1,81 @@
+<div class="wrapper">
+    <div class="body-overlay"></div>
+    {{> admin-sidebar}}
+    <div id="content" class="bg-light">
+        {{> admin-header}}
+        <section class="px-lg-5 mx-lg-5">
+            <div class=" mx-auto container-fluid shadow-sm rounded bg-white px-5">
+                {{!-- --}}
+                <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom ">
+                    <h2 class="mr-md-auto font-weight-bold">Bài Viết Của Tôi</h2>
+                    <a class="my-4 btn btn-warning" href="/news/create"> <i class="fa-solid fa-pen-to-square"></i> Viết
+                        Bài</a>
+                </div>
+                <br>
+                {{!-- --}}
+                <div class="card-body form-custom">
+                    <form method="POST" action="/news/article/:{{news._id}}?Method=POST" enctype="multipart/form-data">
+                        <div class="form-row ">
+                            {{!-- --}}
+                            <div class="form-group col-md-4">
+
+                                <div class="form-group">
+                                    <label for="name">Tiêu Đề</label>
+                                    <textarea class="form-control" value="{{news.name}}" id="name" name="name"
+                                        required>{{news.name}}</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="description" >Danh Mục</label>
+                                    <select name="categories" id="categories" class="form-control" >
+                                        {{#each category}}
+                                        <option value="{{this._id}}">
+                                            {{this.name}}
+                                        </option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="description">Ảnh</label>
+                                    <br>
+                                    <input class="preview-Img form-control" type="file"
+                                        accept="image/*" id="avatar" name="avatar" required  onchange="loadFile(event)" />
+                                    <div class=" py-3 d-flex justify-content-center">
+                                        <img class="img-fluid " id="output" src="/public/img/{{news.image}}" alt="{{news.image}}" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            {{!-- --}}
+
+                            <div class="form-group col-md-8 pl-md-5">
+
+                                <div class="form-group">
+                                    <label for="description">Mô tả</label>
+                                    <textarea type="text" class="form-control" id="description"
+                                        name="description" required></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="description">Nội dung</label>
+                                    <textarea type="text" class="form-control" rows="10" id="editor" name="content" required></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-row  d-flex justify-content-center ">
+                            <div class="form-group my-3">
+                                 <button name="submit" class="btn btn-success px-4 custom-btn">
+                                    <i class="fa-solid fa-pen-to-square pr-2"></i>
+                                    Đăng Bài
+                                 </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        {{>footer}}
+    </div>
+</div>

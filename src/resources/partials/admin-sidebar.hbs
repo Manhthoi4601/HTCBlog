@@ -1,0 +1,59 @@
+<nav id="sidebar">
+    <div class="header__logo text-center">
+        <a href="/">HTC Blogs</a>
+    </div>
+    <div class="mx-auto d-flex justify-content-center align-items-center ">
+        <ul class="list-unstyled components  ">
+            <li class="dropdown">
+                <a href="/me/stored/news">
+                    <i class="material-symbols-outlined mr-3"> newspaper </i>
+                    <span>Quản lý Bài viết</span></a>
+            </li>
+
+            <li class="dropdown">
+                <a href="/me/stored/categories">
+                    <i class="material-symbols-outlined mr-3">grid_view</i>
+                    <span>Quản lý danh mục</span>
+                </a>
+            </li>
+
+            <li class="dropdown">
+                <a href="/me/trash/news">
+                    <i class="material-symbols-outlined mr-3">delete</i>
+                    <span>Thùng rác</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a data-toggle="modal" data-target="#logout-modal">
+                    <i class="material-symbols-outlined mr-3">power_settings_new</i>
+                    <span>Đăng Xuất</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar-footer py-3 my-3">
+        <span class="copyright">© 2022 HTC Blogs</span>
+    </div>
+</nav>
+
+
+
+<div class="modal" tabindex="-1" role="dialog" id="logout-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Đăng Xuất</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Bạn có chắc muốn đăng xuất không?</p>
+      </div>
+      <div class="modal-footer ">
+        <a href="/login"><button type="button" class="btn btn-danger">Đăng Xuất</button></a>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Huỷ</button>
+      </div>
+    </div>
+  </div>
+</div>

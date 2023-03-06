@@ -1,0 +1,75 @@
+{{> header}}
+<section class="blog">
+  <div class="container">
+    <div class="row">
+      {{!-- Main --}}
+
+      <div class="col-lg-8 col-md-7 ">
+        <div class="row ">
+          {{#each news}}
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="blog__item  px-lg-5 ">
+              <div class="blog__item__pic">
+                <a href="/news/{{this.slug}}">
+                  <img class="img-fluid" src="/public/img/{{this.image}}" class="img-fluid" alt="{{this.name}}">
+                </a>
+              </div>
+              <div class="blog__item__text">
+                <ul>
+                  <li><i class="fa-regular fa-calendar"></i>{{this.createdAt}}</li>
+                  <li><i class="fa-regular fa-comment"></i></i>5</li>
+                </ul>
+                <h3><a href="/news/{{this.slug}}">{{this.name}}</a></h3>
+                <p>{{this.description}}</p>
+                {{!-- <div class="text-center">
+                  <a href="/news/{{this.slug}}" class="text-center blog__btn">Đọc Thêm</a>
+                </div> --}}
+              </div>
+            </div>
+          </div>
+          {{/each }}
+        </div>
+
+        <div class="col-lg-12 border-top">
+          <div class="text-center py-4 blog__home__category">
+            <h2>Nổi Bật</h2>
+          </div>
+          <div class="row">
+            {{#each news}}
+            <div class="col-lg-6 col-md-6 col-sm-6 ">
+              <div class="blog__item">
+                <div class="blog__item__pic">
+                  <a href="/news/{{this.slug}}">
+                    <img class="img-fluid" src="/public/img/{{this.image}}" alt="{{this.name}}">
+                  </a>
+                </div>
+                <div class="blog__item__text">
+                  <ul>
+                    <li><i class="fa-regular fa-calendar"></i> {{this.createdAt}}</li>
+                    <li><i class="fa-regular fa-comment"></i></i>5</li>
+                  </ul>
+                  <h5><a href="/news/{{this.slug}}">{{this.name}}</a></h5>
+                  {{!-- <p>{{this.description}}</p> --}}
+                  {{!-- <a href="/news/{{this.slug}}" class="text-center blog__btn">Đọc Thêm</a> --}}
+                </div>
+              </div>
+            </div>
+            {{/each }}
+          </div>
+        </div>
+
+        {{!-- pagination --}}
+        <div class="col-lg-12 py-5">
+          <div class="product__pagination blog__pagination">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      {{> sidebar}}
+    </div>
+  </div>
+</section>
+{{> footer}}

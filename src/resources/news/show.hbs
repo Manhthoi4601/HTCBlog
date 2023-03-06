@@ -1,0 +1,78 @@
+<!-- Blog Details -->
+{{> header}}
+<section class="blog-details spad">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-10 px-lg-5 mx-lg-3 ">
+                <div class="blog__details__text">
+                    <h2 class="py-lg-3">{{News.name}}</h2>
+                    <img class="img-fluid" src="/public/img/{{News.image}}" alt="{{News.name}}">
+                    <pre>{{News.content}}</pre>
+                </div>
+                <div class="blog__details__content">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="blog__details__author">
+                                <div class="blog__details__author__pic">
+                                    <img class="img-fluid" src="/public/img/{{News.image}}" alt="{{News.name}}">
+                                </div>
+                                <div class="blog__details__author__text">
+                                    <h6>Michael Scofield</h6>
+                                    <span>Admin</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="blog__details__widget">
+                                <ul>
+                                    <li><span>Categories: {{News.Categories}}</span> </li>
+                                    <li><span>Tags:</span> All, Trending, Cooking, Healthy Food, Life Style</li>
+                                </ul>
+                                <div class="blog__details__social">
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                    <a href="#"><i class="fa-brands fa-telegram"></i></i></a>
+                                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Blog  -->
+<section class="related-blog spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title related-blog-title">
+                    <h2>Bài Viết Gần Đây</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center mx-lg-5">
+            {{#each Recent}}
+
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic">
+                        <img src="/public/img/{{this.image}}" alt="">
+                    </div>
+                    <div class="blog__item__text">
+                        <ul>
+                            <li><i class="fa-regular fa-calendar"></i> May 4,2019</li>
+                            <li><i class="fa-regular fa-comment"></i> 5</li>
+                        </ul>
+                        <h5><a href="/news/{{this.slug}}">{{this.name}}</a></h5>
+                        <p>{{this.description}}</p>
+                    </div>
+                </div>
+            </div>
+            {{/each }}
+        </div>
+    </div>
+</section>
+{{> footer}}

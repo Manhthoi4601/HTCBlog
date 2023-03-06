@@ -1,0 +1,34 @@
+.form-custom {
+    input[type=file] {
+        border: 0px;
+    }
+
+    .preview-Img::-webkit-file-upload-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        border-radius: 3px;
+        padding: 7px 20px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        color: #fff;
+        font-weight: 600;
+        background-color: #2d3436;
+        background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+    }
+
+    img {
+        max-height: 250px;
+        border-radius: 3px;
+    }
+
+    label {
+        font-weight: 700;
+    }
+
+    .ck-editor__editable {
+        min-height: 150px !important;
+        max-height: 400px !important;
+    }
+}

@@ -1,0 +1,100 @@
+{{!-- Header --}}
+<header class="header sticky-top " id="navBar">
+  <div class="header__top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="header__top__left">
+            <ul>
+              <a href="/">
+                <li><i class="fa fa-envelope"></i> htcblog@gmail.com</li>
+              </a>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="header__top__right">
+            <div class="header__top__right__social">
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-telegram"></i></i></a>
+              <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="header__top__right__auth">
+              <a href="/login"><i class="fa fa-user"></i> Đăng Nhập</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2">
+        <div class="header__logo">
+          <a href="/">HTC Blogs</a>
+        </div>
+      </div>
+      <div class="col-lg-10 d-flex align-items-center justify-content-center">
+        <nav class="header__menu">
+          <ul>
+            {{#each category}}
+            <li><a href="/news/category/{{this._id}}">{{this.name}}</a></li>
+            {{/each}}
+          </ul>
+        </nav>
+      </div>
+      {{!-- <div class="col-lg-1 d-flex align-items-center justify-content-end">
+        <div class="header__menu">
+          <button type="button" data-toggle="modal" data-target="#myModal" class="btn-search">      
+          <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div> --}}
+
+      </div>
+    </div>
+    <div class="humberger__open">
+      <i class="fa fa-bars"></i>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="humberger__menu__overlay"></div>
+<div class="humberger__menu__wrapper">
+  <div class="humberger__menu__logo">
+    <a href="/"><img src="./img/logo.svg" alt=""></a>
+  </div>
+  <div class="humberger__menu__widget">
+    <div class="header__top__right__auth">
+      <a href="/login"><i class="fa fa-user"></i> Đăng Nhập</a>
+    </div>
+  </div>
+  <nav class="humberger__menu__nav mobile-menu">
+    <ul>
+      <li><a href="/">Trang Chủ</a></li>
+      {{#each category}}
+      <li><a href="/news/category/{{this._id}}">{{this.name}}</a></li>
+      {{/each}}
+    </ul>
+  </nav>
+  <div id="mobile-menu-wrap"></div>
+  <div class="header__top__right__social">
+    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+    <a href="#"><i class="fa-brands fa-telegram"></i></i></a>
+    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+  </div>
+</div>
+
+{{!-- Search --}}
+<div class="modal fade mt-50" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-dialog-centered custom-search-modal" role="document">
+    <div class="modal-content">
+       <form method="GET" action="news/search">
+        <input name="name" type="search" placeholder="Tìm kiếm...">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+    </div>
+  </div>
+</div>

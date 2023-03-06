@@ -1,0 +1,48 @@
+.login {
+    //background-color: #fee2ce;
+    //background-image: url("https://cdn.dribbble.com/users/2514356/screenshots/5353887/media/43cba0e2a9444478a87713bb199d664a.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login_wrapper {
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 1px;
+    position: relative;
+    vertical-align: baseline;
+    margin-top: 12px;
+    max-width: 350px;
+
+    header {
+        text-align: center;
+        font-family: 'Leckerli One', cursive;
+        padding-top: 45px;
+        font-size: 35px;
+    }
+
+    form {
+        margin: 40px 0;
+
+        .form-label {
+            font-size: 14px;
+        }
+
+        input {
+            font-size: 12px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        input::placeholder {
+            font-size: 12px;
+        }
+    }
+
+    a:hover {
+        color: red;
+    }
+
+}

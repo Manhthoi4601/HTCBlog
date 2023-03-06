@@ -1,0 +1,23 @@
+{{> header}}
+<section class="spad">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-8">
+      <div class="row mx-auto">
+        {{#each data}}
+        <div class="col-sm-6">
+          <div class="blog__item">
+            <a href="/news/{{this.slug}}">
+              <img class="card-img-top" src="/public/img/{{this.image}}" alt="{{this.name}}">
+            </a>
+            <div class="blog__item__text">
+              <h5><a href="/news/{{this.slug}}">{{this.name}}</a></h5>
+              <p>{{this.description}}</p>
+            </div>
+          </div>
+        </div>
+        {{/each }}
+      </div>
+    </div>
+  </div>
+</section>
+{{> footer}}
